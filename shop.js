@@ -49,6 +49,7 @@ window.addEventListener('storage',e=>{if(e.key==='carolina-cart-v1'||e.key==='ca
 
 function changeQuantity(wrapper,value){const id=Number(wrapper.dataset.quantityFor),n=Math.max(1,Math.min(99,parseInt(value,10)||1));if(wrapper.dataset.inCart==='true'){quantities[id]=n;save()}else{drafts[id]=n;wrapper.querySelector('input').value=n}}
 document.addEventListener('click',e=>{const button=e.target.closest('[data-quantity-step]');if(button){const wrapper=button.closest('[data-quantity-for]');changeQuantity(wrapper,Number(wrapper.querySelector('input').value)+Number(button.dataset.quantityStep))}});
+document.addEventListener('input',e=>{const w=e.target.closest('[data-quantity-for]');if(w&&w.dataset.inCart==='false')drafts[Number(w.dataset.quantityFor)]=Math.max(1,Math.min(99,parseInt(e.target.value,10)||1))});
 document.addEventListener('change',e=>{if(e.target.matches('[data-quantity-for] input'))changeQuantity(e.target.closest('[data-quantity-for]'),e.target.value)});
 
 render();
