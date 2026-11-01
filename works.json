@@ -1,0 +1,146 @@
+[
+  {
+    "id": 0,
+    "title": "The Veil",
+    "image": "assets/608a2aadc15f83205752372e71a66665.jpg",
+    "category": "Peintures",
+    "description": "With her face hidden beneath a translucent veil, she stands between the urge to reveal herself and the need to hide. Shrouded in mystery, she retreats into a deep introspection, longing to uncover and embrace her true self. This image evokes a sense of vulnerability and invites reflection on identity—the complex layers we wrap around ourselves, and the barriers we build to protect yet confine our innermost being.",
+    "details": "Dimensions : 91 x 122cm | 36 x 48 in\nAcrylic on canvas",
+    "series": "Beyond Shadows · The Dream Series"
+  },
+  {
+    "id": 1,
+    "title": "Metamorphosis",
+    "image": "assets/41f339e2cb420dd753507621db3b123c.jpg",
+    "category": "Peintures",
+    "description": "\"Metamorphosis\" portrays the woman floating within a cocoon-like sheath, symbolizing her journey of transformation akin to that of a butterfly. As she navigates through gradual changes of the mind, she begins to shed layers of self-doubt and uncertainty, embracing a newfound understanding of herself. In this ethereal state, she drifts into a profound dream, unaware of the profound metamorphosis that awaits her.",
+    "details": "Dimensions : 91 x 122cm | 36 x 48 in\noil on canvas",
+    "series": "Beyond Shadows · The Dream Series"
+  },
+  {
+    "id": 2,
+    "title": "Deepest Waters",
+    "image": "assets/0611e9cf37c76cd16afb07d187813345.jpg",
+    "category": "Peintures",
+    "description": "Her nudity symbolizes her newfound acceptance and empowerment, no longer bound by concealment. With fresh confidence and insight, she embodies the essence of emotional freedom.\nThe particles of water around her symbolize her emotions, thoughts, and fragments of identity, rising and fading into the space—a release that captures a moment of transformation, suggesting the liberation of emotional burdens. The water and ethereal atmosphere evoke the power of purification.",
+    "details": "Dimensions : 61 x 122cm | 24 x 48 in\noil on canvas",
+    "series": "Beyond Shadows · The Dream Series"
+  },
+  {
+    "id": 3,
+    "title": "Sans titre",
+    "image": "assets/0ebb4b0a3d3367fc300a9b20c640e91f.jpg",
+    "category": "Peintures",
+    "description": "She covers her eyes, trying to block out the overwhelming world, reflecting an intimate, silent connection between human and nature, a communication that transcends physical barriers. This moment conveys a quiet peace, a kind of comfort amidst an impending emotional storm. Yet, at the same time, the horse—her refuge—offers a calm presence, giving her the feeling of being understood and the promise of a clear sky ahead.",
+    "details": "Dimensions : 69 x 58cm | 27 x 23 in\noil on canvas",
+    "series": "Beyond Shadows · The Dream Series"
+  },
+  {
+    "id": 4,
+    "title": "Ascend",
+    "image": "assets/a6fa8159a6fc9205948eeafaf75d66fc.jpg",
+    "category": "Peintures",
+    "description": "Ascend captures the moment between struggle and surrender. Suspended in darkness, a woman reaches toward the light, embodying the quiet resilience that emerges after confronting fear, grief, and uncertainty. Her upward gesture is not only a search for hope but a declaration of transformation.",
+    "details": "Dimensions : 99 x 130cm | 39 x 51 in\noil on canvas",
+    "series": "Beyond Shadows · The Dream Series"
+  },
+  {
+    "id": 5,
+    "title": "Color",
+    "image": "assets/cb0d1620ab6a309c9a9dea6b4f06fcf8.jpg",
+    "category": "Peintures",
+    "description": "She exists in the space between who she was and who she is becoming. Suspended in stillness, she surrenders to an unseen transformation as color begins to emerge around her. The quiet process of embracing one’s authentic self and discovering the beauty that has always existed within.",
+    "details": "Dimensions : 310 x 193cm | 122 x 76 in",
+    "series": "Beyond Shadows · The Dream Series"
+  },
+  {
+    "id": 6,
+    "title": "Dessin 01",
+    "image": "assets/d0ac647c9ad6570585c981e51e2e49e8.jpg",
+    "category": "Dessins",
+    "description": "",
+    "details": "Titre et technique non précisés dans le portfolio.",
+    "series": "Dessins"
+  },
+  {
+    "id": 7,
+    "title": "Dessin 02",
+    "image": "assets/0a4e4be3e5b3f25304a15366be51fd7e.jpg",
+    "category": "Dessins",
+    "description": "",
+    "details": "Titre et technique non précisés dans le portfolio.",
+    "series": "Dessins"
+  },
+  {
+    "id": 8,
+    "title": "Dessin 03",
+    "image": "assets/44c637318e4baf6a46e5f908cc1bb385.jpg",
+    "category": "Dessins",
+    "description": "",
+    "details": "Titre et technique non précisés dans le portfolio.",
+    "series": "Dessins"
+  },
+  {
+    "id": 9,
+    "title": "Dessin 04",
+    "image": "assets/bb463871f70e0cd503bf432d54ef52cf.jpg",
+    "category": "Dessins",
+    "description": "",
+    "details": "Titre et technique non précisés dans le portfolio.",
+    "series": "Dessins"
+  },
+  {
+    "id": 10,
+    "title": "Dessin 05",
+    "image": "assets/9c199edc34d3f74081e0a9c7428df56d.jpg",
+    "category": "Dessins",
+    "description": "",
+    "details": "Titre et technique non précisés dans le portfolio.",
+    "series": "Dessins"
+  },
+  {
+    "id": 11,
+    "title": "Dessin 06",
+    "image": "assets/4ed845790def670239698845c11a3ddd.jpg",
+    "category": "Dessins",
+    "description": "",
+    "details": "Titre et technique non précisés dans le portfolio.",
+    "series": "Dessins"
+  },
+  {
+    "id": 12,
+    "title": "Dessin 07",
+    "image": "assets/96733de3185d17ae25a5a0cbbbd2bf3b.jpg",
+    "category": "Dessins",
+    "description": "",
+    "details": "Titre et technique non précisés dans le portfolio.",
+    "series": "Dessins"
+  },
+  {
+    "id": 13,
+    "title": "Dessin 08",
+    "image": "assets/d122ed31e5db5110d597edaa6833b55c.jpg",
+    "category": "Dessins",
+    "description": "",
+    "details": "Titre et technique non précisés dans le portfolio.",
+    "series": "Dessins"
+  },
+  {
+    "id": 14,
+    "title": "Dessin 09",
+    "image": "assets/01446ccf292e04b8e55ded4c9f39e928.jpg",
+    "category": "Dessins",
+    "description": "",
+    "details": "Titre et technique non précisés dans le portfolio.",
+    "series": "Dessins"
+  },
+  {
+    "id": 15,
+    "title": "Dessin 10",
+    "image": "assets/84ce6d404ca5fc94f32a35c851ebb58c.jpg",
+    "category": "Dessins",
+    "description": "",
+    "details": "Titre et technique non précisés dans le portfolio.",
+    "series": "Dessins"
+  }
+]
