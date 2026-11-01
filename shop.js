@@ -5,8 +5,9 @@ const tr=(fr,en)=>typeof language!=='undefined'&&language==='fr'?fr:en;
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const title=p=>p.title==='Sans titre'?tr('Sans titre','Untitled'):p.title;
 const dialog=document.querySelector('#shopping-cart');
-function save(){try{localStorage.setItem('carolina-cart-v1',JSON.stringify(cart))}catch{}render()}
-function render(){document.querySelector('#shop-products').innerHTML=products.map(p=>'<article class="product"><a class="product-image" href="galerie.html'+(p.id===1?'#metamorphosis':'')+'"><img src="'+p.image+'" alt="'+esc(title(p))+'" loading="lazy"></a><p class="product-kicker">'+tr('ŒUVRE ORIGINALE · PIÈCE UNIQUE','ORIGINAL ARTWORK · UNIQUE PIECE')+'</p><h3>'+esc(title(p))+'</h3><p class="product-details">'+esc(p.details).replace(/\n/g,'<br>')+'</p><p class="product-price">'+tr('Prix sur demande','Price on request')+'</p><details><summary>'+tr('À propos de cette œuvre','About this artwork')+'</summary><p>'+esc(tr(p.descriptionFr||p.description,p.description))+'</p></details><button class="button add-cart" data-add="'+p.id+'" '+(cart.includes(p.id)?'disabled':'')+'>'+ (cart.includes(p.id)?tr('Ajoutée au panier ✓','Added to bag ✓'):tr('Ajouter au panier +','Add to bag +'))+'</button></article>').join('');
+let activeProduct=null,productOpener;
+function save(){try{localStorage.setItem('carolina-cart-v1',JSON.stringify(cart))}catch{}render();if(activeProduct!==null)openProduct(activeProduct)}
+function render(){document.querySelector('#shop-products').innerHTML=products.map(p=>'<article class="product"><button class="product-image" data-product="'+p.id+'" aria-label="'+esc(tr('Voir ','View ')+title(p))+'"><img src="'+p.image+'" alt="'+esc(title(p))+'" loading="lazy"></button><p class="product-kicker">'+tr('ŒUVRE ORIGINALE · PIÈCE UNIQUE','ORIGINAL ARTWORK · UNIQUE PIECE')+'</p><h3>'+esc(title(p))+'</h3><p class="product-details">'+esc(p.details).replace(/\n/g,'<br>')+'</p><p class="product-price">'+tr('Prix sur demande','Price on request')+'</p><details><summary>'+tr('À propos de cette œuvre','About this artwork')+'</summary><p>'+esc(tr(p.descriptionFr||p.description,p.description))+'</p></details><button class="button add-cart" data-add="'+p.id+'" '+(cart.includes(p.id)?'disabled':'')+'>'+ (cart.includes(p.id)?tr('Ajoutée au panier ✓','Added to bag ✓'):tr('Ajouter au panier +','Add to bag +'))+'</button></article>').join('');
 document.querySelector('#cart-trigger').textContent=tr('Panier','Bag')+' ('+cart.length+')';
 document.querySelector('#cart-title').textContent=tr('Votre sélection','Your selection');
 document.querySelector('#cart-close').textContent=tr('Fermer ×','Close ×');
@@ -18,5 +19,23 @@ document.querySelector('#request-quote').href='mailto:carolinadeelart@gmail.com?
 }
 document.addEventListener('click',e=>{const add=e.target.closest('[data-add]'),remove=e.target.closest('[data-remove]');if(add){const id=Number(add.dataset.add);if(!cart.includes(id)){cart.push(id);save();document.querySelector('#shop-status').textContent=tr('Œuvre ajoutée au panier.','Artwork added to your bag.')}}if(remove){cart=cart.filter(id=>id!==Number(remove.dataset.remove));save()}if(e.target.closest('[data-continue]'))dialog.close();if(e.target.closest('[data-language]'))render()});
 document.querySelector('#cart-trigger').onclick=()=>dialog.showModal();document.querySelector('#cart-close').onclick=()=>dialog.close();dialog.addEventListener('click',e=>{if(e.target===dialog){const r=dialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)dialog.close()}});
+
+const productDialog=document.querySelector('#product-dialog');
+function openProduct(id){activeProduct=id;const p=products.find(p=>p.id===id);if(!p)return;
+document.querySelector('#product-content').innerHTML='<img class="product-large" src="'+p.image+'" alt="'+esc(title(p))+'"><div class="product-info"><p class="eyebrow">'+esc(p.series)+'</p><h2 id="product-title">'+esc(title(p))+'</h2><p>'+esc(p.details).replace(/\\n/g,'<br>')+'</p><p>'+esc(tr(p.descriptionFr||p.description,p.description))+'</p><div class="product-purchase"><p class="product-modal-price">'+tr('Prix hors taxes : sur demande','Price excluding tax: on request')+'</p><p>'+tr('Livraison non incluse. Frais confirmés selon la destination.','Shipping not included. Delivery costs confirmed for your destination.')+'</p><button class="button add-cart" data-add="'+p.id+'" '+(cart.includes(p.id)?'disabled':'')+'>'+ (cart.includes(p.id)?tr('Ajoutée au panier ✓','Added to bag ✓'):tr('Ajouter au panier +','Add to bag +'))+'</button><p role="status">'+(cart.includes(p.id)?tr('Cette œuvre est dans votre panier.','This artwork is in your bag.'):'')+'</p><button class="text-link" data-open-bag>'+tr('Voir mon panier','View my bag')+'</button></div></div>';
+document.querySelector('#product-close').textContent=tr('Fermer ×','Close ×');
+document.querySelector('#product-prev').textContent=tr('← Précédente','← Previous');
+document.querySelector('#product-next').textContent=tr('Suivante →','Next →');
+if(!productDialog.open)productDialog.showModal();
+}
+function productStep(n){const i=products.findIndex(p=>p.id===activeProduct);openProduct(products[(i+n+products.length)%products.length].id)}
+document.querySelector('#product-close').onclick=()=>productDialog.close();
+document.querySelector('#product-prev').onclick=()=>productStep(-1);
+document.querySelector('#product-next').onclick=()=>productStep(1);
+productDialog.addEventListener('keydown',e=>{if(e.key==='ArrowLeft'){e.preventDefault();productStep(-1)}if(e.key==='ArrowRight'){e.preventDefault();productStep(1)}});
+productDialog.addEventListener('close',()=>{activeProduct=null;productOpener?.focus()});
+productDialog.addEventListener('click',e=>{if(e.target===productDialog){const r=productDialog.getBoundingClientRect();if(e.clientX<r.left||e.clientX>r.right||e.clientY<r.top||e.clientY>r.bottom)productDialog.close()}});
+document.addEventListener('click',e=>{const b=e.target.closest('[data-product]');if(b){productOpener=b;openProduct(Number(b.dataset.product))}if(e.target.closest('[data-open-bag]')){productDialog.close();dialog.showModal()}});
+
 render();
 })();
